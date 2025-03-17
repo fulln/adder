@@ -1,0 +1,15 @@
+[package]
+name = "adder"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+# 内部依赖（工作区内部模块）
+# 使用 path 属性指向本地路径，表示这是项目内部的模块
+adder-utils = { path = "../adder-utils" }
+adder-core = { path = "../adder-core" }
+
+# 外部依赖（从crates.io下载的第三方库）
+# 直接指定版本号或使用特性配置
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter", "fmt"] }

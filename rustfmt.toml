@@ -1,0 +1,25 @@
+# 最大行宽为100个字符
+max_width = 100
+# 硬性限制为行宽
+hard_tabs = false
+# 使用4个空格缩进
+tab_spaces = 4
+# 换行时缩进风格
+newline_style = "Auto"
+# 使用2021版Rust版本
+edition = "2021"
+# 格式化导入语句
+imports_indent = "Block"
+imports_layout = "Mixed"
+# 格式化注释
+normalize_comments = true
+# 合并导入语句
+imports_granularity = "Crate"
+# 对空行进行规范化
+normalize_doc_attributes = true
+# 移除尾随逗号
+trailing_comma = "Vertical"
+# 使用空格在=周围
+spaces_around_ranges = false
+# 结构体字段对齐
+struct_field_align_threshold = 20

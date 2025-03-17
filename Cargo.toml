@@ -1,0 +1,59 @@
+[workspace]
+members = [
+    "adder",
+    "adder-core",
+    "adder-utils",
+]
+
+# 指定默认构建的成员
+default-members = ["adder"]
+
+# 设置 resolver 版本（Rust 2021 中的新特性）
+resolver = "2"
+
+# 工作区级别的依赖管理
+[workspace.dependencies]
+serde = { version = "1.0", features = ["derive"] }
+log = "0.4"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter", "fmt"] }
+anyhow = "1.0"
+
+# 工作区级别的开发依赖
+[workspace.dev-dependencies]
+pretty_assertions = "1.2"
+mockall = "0.13.1"
+
+# 工作区共享的元数据信息 - 子包可以继承这些信息
+[workspace.package]
+authors = ["Your Name <your.email@example.com>"]
+edition = "2021"
+repository = "https://github.com/yourusername/adder"
+license = "MIT OR Apache-2.0"
+readme = "README.md"
+
+# 指定工作区的生产配置
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+strip = true  # 自动去除调试信息
+panic = "abort"  # 减少二进制大小
+
+# 开发配置优化
+[profile.dev]
+opt-level = 0
+debug = true
+
+
+# 测试配置
+[profile.test]
+opt-level = 0
+debug = true
+
+# CI/CD流程的构建配置
+[profile.ci]
+inherits = "dev"
+opt-level = 1
+debug = true
+incremental = false
