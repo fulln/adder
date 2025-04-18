@@ -14,7 +14,7 @@ imports_layout = "Mixed"
 # 格式化注释
 normalize_comments = true
 # 合并导入语句
-imports_granularity = "Crate"
+imports_granularity = "Preserve"
 # 对空行进行规范化
 normalize_doc_attributes = true
 # 移除尾随逗号

@@ -8,8 +8,14 @@ edition = "2021"
 # 使用 path 属性指向本地路径，表示这是项目内部的模块
 adder-utils = { path = "../adder-utils" }
 adder-core = { path = "../adder-core" }
+serde = { workspace = true }
 
 # 外部依赖（从crates.io下载的第三方库）
 # 直接指定版本号或使用特性配置
 tracing = "0.1"
 tracing-subscriber = { version = "0.3", features = ["env-filter", "fmt"] }
+
+# 引用工作区定义的开发依赖
+[dev-dependencies]
+pretty_assertions = "1.2"  # 直接指定版本，与工作区保持一致
+mockall = "0.13.1"  # 直接指定版本，与工作区保持一致

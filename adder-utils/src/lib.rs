@@ -1,5 +1,3 @@
-// 工具函数模块
-
 // 计算矩形面积
 pub fn calculate_area(width: u32, height: u32) -> u32 {
     width * height

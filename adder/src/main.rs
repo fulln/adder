@@ -7,5 +7,4 @@ fn main() {
         .init();
 
     info!("This is an info message");
-    println!("Hello, world!");
 }

@@ -19,6 +19,12 @@ tracing = "0.1"
 tracing-subscriber = { version = "0.3", features = ["env-filter", "fmt"] }
 anyhow = "1.0"
 
+# 添加clippy配置
+[workspace.lints.clippy]
+enum_glob_use = "warn"
+pedantic = { level = "warn", priority = -1 }
+unwrap_used = "deny"
+
 # 工作区级别的开发依赖
 [workspace.dev-dependencies]
 pretty_assertions = "1.2"
@@ -29,7 +35,7 @@ mockall = "0.13.1"
 authors = ["Your Name <your.email@example.com>"]
 edition = "2021"
 repository = "https://github.com/yourusername/adder"
-license = "MIT OR Apache-2.0"
+license = "MIT"
 readme = "README.md"
 
 # 指定工作区的生产配置
@@ -53,7 +59,7 @@ debug = true
 
 # CI/CD流程的构建配置
 [profile.ci]
-inherits = "dev"
-opt-level = 1
-debug = true
-incremental = false
+inherits = "dev"  # 继承自dev配置
+opt-level = 1     # 轻度优化（比dev高但比release低）
+debug = true      # 保留调试信息
+incremental = false # 禁用增量编译，确保完整构建
