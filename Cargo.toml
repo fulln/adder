@@ -2,7 +2,7 @@
 members = [
     "adder",
     "adder-core",
-    "adder-utils",
+    "adder-utils", "user_auth_service",
 ]
 
 # 指定默认构建的成员

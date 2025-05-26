@@ -1,0 +1,25 @@
+[package]
+name = "user_auth_service"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+actix-web = "4"
+sqlx = { version = "0.7", features = ["runtime-async-std", "postgres", "macros", "uuid", "chrono"] }
+jsonwebtoken = "8"
+bcrypt = "0.15"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+dotenv = "0.15"
+chrono = { version = "0.4", features = ["serde"] }
+uuid = { version = "1.8", features = ["v4", "serde"] }
+validator = { version = "0.18", features = ["derive"] } # Added for potential future use, used as placeholder in handlers.rs
+
+[dev-dependencies]
+actix-rt = "2"
+actix-web = { version = "4", features = ["macros"] } # For test server
+# sqlx-test = "0.2" # Optional, for more advanced test DB management
+tokio = { version = "1", features = ["macros", "rt-multi-thread"] }
+serde_json = "1.0" # For constructing test request bodies & asserting responses
